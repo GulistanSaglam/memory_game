@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(249, 250, 251);
+}
+
+#container 
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: rgb(112, 155, 235);
+    padding: 40px 60px;
+}
+
+h2{
+    font-size: 2.5em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset {
+    padding: 15px 20px;
+    color:rgb(112, 155, 235);
+    border-radius: 10px;
+    border-color:rgb(112, 155, 235);
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:hover {
+    color: #fff;
+    background-color:rgb(84, 140, 243);
+}
+
+.game {
+    width: 440px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.cell {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    font-size: 2em;
+    transition: 0.25s;
+    color: rgb(183, 1, 137);
+    font-weight: 600;
+    transform: rotateY(180deg);
+}
+
+.cell.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.cell::after {
+   content: '';
+   position: absolute;
+   inset: 0;
+   background-color: rgb(157, 188, 246);
+   transition: 0.25s;
+   transform: rotateY(0deg);
+   backface-visibility: hidden;
+}
+
+.boxOpen:after,
+.boxMatch:after {
+    transform: rotateY(180deg);
+}
